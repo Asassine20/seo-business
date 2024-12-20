@@ -468,61 +468,6 @@
     display: none;
   }
 }
-/* Dark Mode Mobile */
-@media only screen and (max-width: 1023px) {
-  body.dark-mode #navigation .background-color-div {
-    background-color: var(--dark);
-  }
-  body.dark-mode #navigation .hamburger-menu.clicked span {
-    background-color: var(--dark);
-  }
-  body.dark-mode #navigation .hamburger-menu span {
-    background-color: #fff;
-  }
-  body.dark-mode #navigation .hamburger-menu span:before,
-  body.dark-mode #navigation .hamburger-menu span:after {
-    background-color: #fff;
-  }
-  body.dark-mode #navigation .logo .light {
-    display: block;
-  }
-  body.dark-mode #navigation .logo .dark {
-    display: none !important;
-  }
-  body.dark-mode #navigation #navbar-menu {
-    background-color: var(--medium);
-  }
-  body.dark-mode #navigation #navbar-menu ul li a {
-    color: #fff;
-  }
-  body.dark-mode #navigation #navbar-menu ul li a:before {
-    background: var(--accent);
-  }
-  body.dark-mode #navigation #navbar-menu ul li a.active {
-    color: var(--primary);
-  }
-}
-/* Dark Mode Desktop */
-@media only screen and (min-width: 1024px) {
-  body.dark-mode #navigation .background-color-div {
-    background-color: var(--dark);
-  }
-  body.dark-mode #navigation .logo .light {
-    display: block;
-  }
-  body.dark-mode #navigation .logo .dark {
-    display: none !important;
-  }
-  body.dark-mode #navigation #navbar-menu ul li a {
-    color: #fff;
-  }
-  body.dark-mode #navigation #navbar-menu ul li a:before {
-    background: var(--accent);
-  }
-  body.dark-mode #navigation #navbar-menu ul li a.active {
-    color: var(--primary);
-  }
-}
 /*-- -------------------------- -->
 <---   Interior Page Header     -->
 <--- -------------------------- -*/
@@ -812,11 +757,5 @@
   }
   #footer .credit .copyright {
     display: inline-block;
-  }
-}
-/* Dark Mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode #footer {
-    background: #061623;
   }
 }
