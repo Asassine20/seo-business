@@ -4,20 +4,19 @@ const { DateTime } = require('luxon');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
 
-// allows the use of {% image... %} to create responsive, optimised images
-// CHANGE DEFAULT MEDIA QUERIES AND WIDTHS
+// allows the use of {% image... %} to create responsive, optimized images
 async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 600px) 400px, 850px') {
-  // don't pass an alt? chuck it out. passing an empty string is okay though
+  // Ensure the `alt` attribute is provided
   if (alt === undefined) {
-    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+    throw new Error(`Missing 'alt' attribute on responsive image: ${src}`);
   }
 
-  // create the metadata for an optimised image
+  // Create the metadata for an optimized image
   let metadata = await Image(`${src}`, {
     widths: [200, 400, 850, 1920, 2500],
     formats: ['webp', 'jpeg'],
     urlPath: '/images/',
-    outputDir: './public/images',
+    outputDir: './_site/images',
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);
@@ -25,15 +24,15 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
     },
   });
 
-  // get the smallest and biggest image for picture/image attributes
+  // Get the smallest and largest images for <picture> and <img> attributes
   let lowsrc = metadata.jpeg[0];
   let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
 
-  // when {% image ... %} is used, this is what's returned
+  // Return the responsive image HTML
   return `<picture class="${className}">
     ${Object.values(metadata)
       .map((imageFormat) => {
-        return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat
+        return `<source type="${imageFormat[0].sourceType}" srcset="${imageFormat
           .map((entry) => entry.srcset)
           .join(', ')}" sizes="${sizes}">`;
       })
@@ -49,39 +48,38 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
 }
 
 module.exports = function (eleventyConfig) {
-  // adds the navigation plugin for easy navs
+  // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // allows css, assets, robots.txt and CMS config files to be passed into /public
+  // Pass-through file copies
   eleventyConfig.addPassthroughCopy('./src/css/**/*.css');
   eleventyConfig.addPassthroughCopy('./src/assets');
   eleventyConfig.addPassthroughCopy('./src/admin');
   eleventyConfig.addPassthroughCopy('./src/_redirects');
   eleventyConfig.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
-  // open on npm start and watch CSS files for changes - doesn't trigger 11ty rebuild
+  // Configure BrowserSync
   eleventyConfig.setBrowserSyncConfig({
     open: true,
-    files: './public/css/**/*.css',
+    files: './_site/css/**/*.css',
   });
 
-  // allows the {% image %} shortcode to be used for optimised iamges (in webp if possible)
+  // Add the {% image %} shortcode
   eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
 
-  // normally, 11ty will render dates on blog posts in full JSDate format (Fri Dec 02 18:00:00 GMT-0600). That's ugly
-  // this filter allows dates to be converted into a normal, locale format. view the docs to learn more (https://moment.github.io/luxon/api-docs/index.html#datetime)
+  // Add a filter for formatting dates
   eleventyConfig.addFilter('postDate', (dateObj) => {
     return DateTime.fromJSDate(dateObj).toLocaleString(DateTime.DATE_MED);
   });
 
+  // Return Eleventy configuration
   return {
     dir: {
       input: 'src',
       includes: '_includes',
-      layouts: "_layouts",
-      output: 'public',
+      layouts: '_layouts',
+      output: '_site', // Changed from 'public' to '_site'
     },
-    // allows .html files to contain nunjucks templating language
     htmlTemplateEngine: 'njk',
   };
 };
