@@ -1,6 +1,3 @@
-/*-- -------------------------- -->
-<---           Reviews          -->
-<--- -------------------------- -*/
 /* Mobile */
 @media only screen and (min-width: 0em) {
   #reviews {
@@ -30,14 +27,16 @@
   }
   #reviews .review .profile {
     display: block;
-    height: 6.1875rem;
-    width: 6.1875rem;
+    max-width: 100%; /* Image will not exceed the container’s width */
+    max-height: 6.1875rem; /* Ensure height stays within container bounds */
     margin-left: 0;
     border-radius: 50%;
     margin-bottom: 1rem;
     position: absolute;
     left: 1.875rem;
     top: -3.1875rem;
+    object-fit: contain; /* Ensures the entire image fits in the container */
+    object-position: center; /* Centers the image within the circle */
   }
   #reviews .review p {
     line-height: 1.33333333;
@@ -72,6 +71,7 @@
     margin: 0;
   }
 }
+
 /* Tablet */
 @media only screen and (min-width: 48em) {
   #reviews {
@@ -92,6 +92,12 @@
   }
   #reviews .review:last-of-type {
     margin-bottom: 9.375rem;
+  }
+  #reviews .review .profile {
+    max-width: 6rem; /* Ensures the image fits within the container */
+    max-height: 6rem; /* Keeps height proportional */
+    object-fit: contain; /* Keeps the entire image visible */
+    object-position: center;
   }
 }
 

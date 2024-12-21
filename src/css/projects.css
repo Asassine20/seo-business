@@ -1,89 +1,121 @@
-/*-- -------------------------- -->
-<---          Gallery           -->
-<--- -------------------------- -*/
-/* Mobile - 360px - Contains hover animation */
-@media only screen and (min-width: 0em) {
-  #gallery {
-    /* Centers button */
-    text-align: center;
-    padding: var(--sectionPadding);
-    position: relative;
-    /* Prevents overflow from the image going off screen */
-    overflow: hidden;
-  }
-  #gallery .cs-container {
-    width: 100%;
-    max-width: 82.625em;
-    margin: auto;
-  }
-  #gallery .cs-image-group {
-    /* used rem so it doesn't scale with the font size of on parent */
-    font-size: min(1.1vw, 1em);
-    width: 100%;
-    max-width: 82.625em;
-    padding: 0;
-    margin: 0 auto 3.75rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.875em;
-  }
-  #gallery .cs-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.875em;
-  }
-  #gallery .cs-picture {
-    position: relative;
-    display: block;
-  }
-  #gallery .cs-picture img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  #gallery .cs-row-1 .cs-picture-1 {
-    width: 26.25em;
-    height: 35.4375em;
-  }
-  #gallery .cs-row-1 .cs-picture-2 {
-    width: 26.25em;
-    height: 39.3125em;
-  }
-  #gallery .cs-row-1 .cs-picture-3 {
-    width: 26.25em;
-    height: 32em;
-  }
-  #gallery .cs-row-2 .cs-picture-1 {
-    width: 26.25em;
-    height: 30.75em;
-  }
-  #gallery .cs-row-2 .cs-picture-2 {
-    width: 26.25em;
-    height: 32.3125em;
-  }
-  #gallery .cs-row-2 .cs-picture-3 {
-    width: 26.25em;
-    height: 39.3125em;
-  }
-  #gallery .cs-row-3 .cs-picture-1 {
-    width: 26.25em;
-    height: 39.0625em;
-  }
-  #gallery .cs-row-3 .cs-picture-2 {
-    width: 26.25em;
-    height: 28.25em;
-  }
-  #gallery .cs-row-3 .cs-picture-3 {
-    width: 26.25em;
-    height: 39.3125em;
+#gallery {
+  text-align: center;
+  padding: var(--sectionPadding);
+  position: relative;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+#gallery .cs-container {
+  width: 100%;
+  max-width: 80rem;
+  margin: auto;
+}
+
+#gallery .cs-topper {
+  font-size: var(--topperFontSize);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+#gallery .cs-title {
+  font-size: var(--headerFontSize);
+  font-weight: bold;
+  line-height: 1.2em;
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  color: var(--headerColor);
+}
+
+#gallery .cs-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#gallery .cs-grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for differentiation */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  height: 600px; /* Ensure all grid items have the same height */
+  will-change: transform, box-shadow; /* Optimize rendering */
+}
+
+#gallery .cs-grid-item img {
+  width: 100%;
+  height: 100%; /* Force image to fill the grid item */
+  max-height: 600px; /* Limit maximum height of the image */
+  object-fit: cover; /* Ensure the image fills the container */
+  object-position: top; /* Align the image to the top of its container */
+  display: block;
+  transition: transform 0.2s ease; /* Smooth scaling */
+}
+
+#gallery .cs-grid-item:hover {
+  transform: scale(1.05) translateZ(0); /* Force GPU acceleration */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Simpler shadow */
+}
+
+#gallery .cs-title-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(247, 179, 43, 1); /* Semi-transparent background */
+  color: #fff; /* White text */
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  visibility: hidden; /* Pre-render but hide */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* Prevent interference with clicks */
+  text-align: center;
+  will-change: opacity, transform; /* Optimize rendering */
+}
+
+#gallery .cs-grid-item:hover .cs-title-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Button Styles */
+#gallery .button-solid {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+#gallery .button-solid:hover {
+  background-color: var(--primaryHover);
+}
+
+/* Responsive Grid for Smaller Screens */
+@media (max-width: 768px) {
+  #gallery .cs-image-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
+
 /*-- -------------------------- -->
 <---    Final Call To Action    -->
 <--- -------------------------- -*/

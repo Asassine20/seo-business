@@ -13,14 +13,22 @@
     <div class="container">
         <!--Logo - Get SVGs if you can.  I use fiverr to get png's turned into SVGs. Highly recommend it, worth the $20 - get a light and dark version-->
         <a class="logo" aria-label="click to go to home page" href="/">
-            <img 
-            aria-hidden="true" 
-            src="https://utfs.io/f/ZfzyDSYoDact5BosYPS138pQYmVXJ6D7GSR1Cl2obIriUj0u" 
-            decoding="async" 
-            loading="lazy" 
-            alt="logo" 
-            width="500px" 
-            height="200px">
+            <picture id="logo-picture">
+                <!-- Image for large screens before scroll -->
+                <source 
+                    srcset="https://utfs.io/f/ZfzyDSYoDact6QL6i8ZNEzQFGRh847Tgtj5xdZIBJs0lokDr" 
+                    media="(min-width: 1024px)">
+                <!-- Default fallback -->
+                <img 
+                    id="logo-image" 
+                    aria-hidden="true" 
+                    src="https://utfs.io/f/ZfzyDSYoDact5BosYPS138pQYmVXJ6D7GSR1Cl2obIriUj0u" 
+                    decoding="async" 
+                    loading="lazy" 
+                    alt="logo" 
+                    width="500px" 
+                    height="200px">
+            </picture>
         </a>
 
         <!--Mobile Nav toggle-->

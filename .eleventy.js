@@ -13,10 +13,11 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
 
   // Create the metadata for an optimized image
   let metadata = await Image(`${src}`, {
-    widths: [200, 400, 850, 1920, 2500],
+    widths: [null],
     formats: ['webp', 'jpeg'],
     urlPath: '/images/',
     outputDir: './_site/images',
+    sharpOptions: { quality: 100 }, // Ensures high-quality outputs
     filenameFormat: function (id, src, width, format, options) {
       const extension = path.extname(src);
       const name = path.basename(src, extension);

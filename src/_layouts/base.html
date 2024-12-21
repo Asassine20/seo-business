@@ -67,22 +67,33 @@
         and we used these body.scroll styles to create some on scroll 
         animations with the navbar
     -->
-        <script defer>
-            document.addEventListener('scroll', (e) => {
-                const scroll = document.documentElement.scrollTop;
-                if (scroll >= 100) {
-                    document
-                        .querySelector('body')
-                        .classList
-                        .add('scroll')
-                } else {
-                    document
-                        .querySelector('body')
-                        .classList
-                        .remove('scroll')
+    <script defer>
+        document.addEventListener('scroll', () => {
+            const scroll = document.documentElement.scrollTop;
+            const logoImg = document.querySelector('#logo-image');
+            const logoSource = document.querySelector('#logo-picture source');
+            const isWideScreen = window.innerWidth >= 1024;
+    
+            if (scroll >= 100) {
+                document.querySelector('body').classList.add('scroll');
+    
+                // Change image for "scrolled" state
+                if (isWideScreen) {
+                    logoSource.srcset = "https://utfs.io/f/ZfzyDSYoDact5BosYPS138pQYmVXJ6D7GSR1Cl2obIriUj0u";
+                    logoImg.src = "https://utfs.io/f/ZfzyDSYoDact5BosYPS138pQYmVXJ6D7GSR1Cl2obIriUj0u";
                 }
-            });
-        </script>
+            } else {
+                document.querySelector('body').classList.remove('scroll');
+    
+                // Change image for "default" state
+                if (isWideScreen) {
+                    logoSource.srcset = "https://utfs.io/f/ZfzyDSYoDact6QL6i8ZNEzQFGRh847Tgtj5xdZIBJs0lokDr";
+                    logoImg.src = "https://utfs.io/f/ZfzyDSYoDact6QL6i8ZNEzQFGRh847Tgtj5xdZIBJs0lokDr";
+                }
+            }
+        });
+    </script>
+    
 
     </body>
 </html>
