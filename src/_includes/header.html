@@ -36,20 +36,26 @@
             <span aria-hidden="true"></span>
         </button>
 
-        <!--Main Nav-->
-        <nav id="navbar-menu" aria-label="main navigation">
-            <ul>
-                {%- for entry in navPages %}
-                    <li>
-                        <a 
-                        {% if entry.url == page.url %} class="active" {% endif %}
-                        href="{{ entry.url }}"
-                    >
-                            {{ entry.title }}
-                        </a>
-                    </li>
-                {%- endfor %}
-            </ul>
-        </nav>
+<!-- Main Nav -->
+<nav id="navbar-menu" aria-label="main navigation">
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/clients">Clients</a>
+        </li>
+        <li>
+            <a href="/reviews">Reviews</a>
+        </li>
+        <li>
+            <a href="/about">About Us</a>
+        </li>
+        <li>
+            <a href="/contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+
     </div>
 </div>
