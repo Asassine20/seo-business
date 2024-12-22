@@ -3,12 +3,12 @@
     "short_name": "TargetRankSEO",
     "icons": [
         {
-            "src": "src/assets/favicons/favicon.ico",
+            "src": "/assets/favicons/favicon.ico",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "src/assets/favicons/favicon.ico",
+            "src": "/assets/favicons/favicon.ico",
             "sizes": "384x384",
             "type": "image/png"
         }
