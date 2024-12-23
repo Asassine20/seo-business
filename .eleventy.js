@@ -53,6 +53,7 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
 module.exports = function (eleventyConfig) {
   //Google ad tag
   eleventyConfig.addGlobalData('googleAdTag', process.env.GOOGLE_AD_TAG);
+  eleventyConfig.addGlobalData('googleAnalyticsTag', process.env.GOOGLE_ANALYTICS);
 
   // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);

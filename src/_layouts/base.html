@@ -44,9 +44,7 @@
     <link rel="stylesheet" href="{{ preloadCSS }}">
 
     <!--Put analytics tag here at the bottom to prevent it from render blocking-->
-    <!--Google tag for ads-->
-    <!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) for google ads-->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ googleAdTag }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -55,6 +53,17 @@
 
         gtag('config', '{{ googleAdTag }}');
     </script>
+
+    <!-- Google tag (gtag.js) for analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ googleAnalyticsTag }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', '{{ googleAnalyticsTag }}');
+    </script>
+
 
     <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
     <title>
