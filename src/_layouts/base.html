@@ -1,69 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!--Swap our for actual link-->
-        <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="{{ description }}">
-        <meta name="keywords" content="">
+    <!--Swap our for actual link-->
+    <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
 
-        <!--Social Media Display-->
-        <meta property="og:title" content="{{ metaTitle }}"/>
-        <meta property="og:description" content="{{ description }}"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}"/>
-        <meta property="og:image" content="/images/social.jpg"/>
-        <meta property="og:image:secure_url" content="/images/social.jpg"/>
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="">
 
-        <!--Favicons-->
-        <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-        <link rel="manifest" href="/src/assets/favicons/site.webmanifest">        
-        <script src="https://kit.fontawesome.com/700da87b78.js" crossorigin="anonymous"></script>
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
+    <!--Social Media Display-->
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://{{ client.domain }}{{ page.url }}" />
+    <meta property="og:image" content="/images/social.jpg" />
+    <meta property="og:image:secure_url" content="/images/social.jpg" />
 
-        <!-- Preload -->
-        <link rel="preload" as="image" href="https://utfs.io/f/ZfzyDSYoDactnWqV5smlcCBkFpKZI69M0TaYbVrHOehd4fGW">
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
-        <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
+    <!--Favicons-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/src/assets/favicons/site.webmanifest">
+    <script src="https://kit.fontawesome.com/700da87b78.js" crossorigin="anonymous"></script>
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <link rel="stylesheet" href="/css/root.css">
+    <!-- Preload -->
+    <link rel="preload" as="image" href="https://utfs.io/f/ZfzyDSYoDactnWqV5smlcCBkFpKZI69M0TaYbVrHOehd4fGW">
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
-        <link rel="preload" as="image" href="{{ preloadImg }}"/>
+    <link rel="stylesheet" href="/css/root.css">
 
-        <!-- Loading in page specific CSS sheets from css block -->
-        <link rel="stylesheet" href="/css/critical.css"/>
-        <link rel="stylesheet" href="{{ preloadCSS }}">
+    <link rel="preload" as="image" href="{{ preloadImg }}" />
 
-        <!--Put analytics tag here at the bottom to prevent it from render blocking-->
+    <!-- Loading in page specific CSS sheets from css block -->
+    <link rel="stylesheet" href="/css/critical.css" />
+    <link rel="stylesheet" href="{{ preloadCSS }}">
 
-        <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
-        <title>
-            {% if page.url == '/'%}
-                {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
-            {% else %}
-                {{ tagTitle }} | {{ client.name }}
-            {% endif %}
-        </title>
-    </head>
-    <body>
-        <!--Screen reader skip main nav-->
-        <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+    <!--Put analytics tag here at the bottom to prevent it from render blocking-->
+    <!--Google tag for ads-->
+    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ googleAdTag }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-        {% include "header.html" %}
-        <main id="main">{{ content | safe }}</main>
-        {% include "footer.html" %}
+        gtag('config', '{{ googleAdTag }}');
+    </script>
 
-        <script defer src="/assets/js/nav.js"></script>
+    <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
+    <title>
+        {% if page.url == '/'%}
+        {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
+        {% else %}
+        {{ tagTitle }} | {{ client.name }}
+        {% endif %}
+    </title>
+</head>
 
-        <!--
+<body>
+    <!--Screen reader skip main nav-->
+    <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
+
+    {% include "header.html" %}
+    <main id="main">{{ content | safe }}</main>
+    {% include "footer.html" %}
+
+    <script defer src="/assets/js/nav.js"></script>
+
+    <!--
         This script adds a class to the body after scrolling 100px
         and we used these body.scroll styles to create some on scroll 
         animations with the navbar
@@ -74,10 +87,10 @@
             const logoImg = document.querySelector('#logo-image');
             const logoSource = document.querySelector('#logo-picture source');
             const isWideScreen = window.innerWidth >= 1024;
-    
+
             if (scroll >= 100) {
                 document.querySelector('body').classList.add('scroll');
-    
+
                 // Change image for "scrolled" state
                 if (isWideScreen) {
                     logoSource.srcset = "https://utfs.io/f/ZfzyDSYoDactnWqV5smlcCBkFpKZI69M0TaYbVrHOehd4fGW";
@@ -85,7 +98,7 @@
                 }
             } else {
                 document.querySelector('body').classList.remove('scroll');
-    
+
                 // Change image for "default" state
                 if (isWideScreen) {
                     logoSource.srcset = "https://utfs.io/f/ZfzyDSYoDact4JG63VEkjeZkqsJwlUMh0FdPBSAzR1YbO3Hn";
@@ -94,7 +107,8 @@
             }
         });
     </script>
-    
 
-    </body>
+
+</body>
+
 </html>

@@ -3,6 +3,8 @@ const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 const { DateTime } = require('luxon');
 const Image = require('@11ty/eleventy-img');
 const path = require('path');
+require('dotenv').config();
+
 
 // allows the use of {% image... %} to create responsive, optimized images
 async function imageShortcode(src, alt, className, loading, sizes = '(max-width: 600px) 400px, 850px') {
@@ -49,6 +51,9 @@ async function imageShortcode(src, alt, className, loading, sizes = '(max-width:
 }
 
 module.exports = function (eleventyConfig) {
+  //Google ad tag
+  eleventyConfig.addGlobalData('googleAdTag', process.env.GOOGLE_AD_TAG);
+
   // Add plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
