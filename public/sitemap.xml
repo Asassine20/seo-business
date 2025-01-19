@@ -30,8 +30,20 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-      <url>
+  <url>
     <loc>https://www.targetrankseo.com/dental</loc>
+    <lastmod>2024-12-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.targetrankseo.com/accountant</loc>
+    <lastmod>2024-12-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.targetrankseo.com/law-firm</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
