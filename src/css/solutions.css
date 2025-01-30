@@ -1,0 +1,167 @@
+/* ============================================ */
+/*                  Solutions Shared Styles     */
+/* ============================================ */
+
+/* General Section Styling */
+.solution-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .solution-section .cs-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .solution-section .cs-topper {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f7b32b; /* Brand color */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .solution-section .cs-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+  
+  .solution-section .cs-text {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+  
+  /* Card Group Styling */
+  .cs-card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  .cs-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cs-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .cs-icon {
+    margin-bottom: 20px;
+  }
+  
+  .cs-icon i {
+    font-size: 48px;
+    color: #f7b32b; /* Brand color */
+  }
+  
+  .cs-h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+  
+  .cs-item-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Why Choose Us Section */
+  #why-choose-us {
+    padding: 80px 0;
+    background-color: #fff;
+  }
+  
+  #why-choose-us .cs-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  #why-choose-us .cs-topper {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f7b32b; /* Brand color */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  #why-choose-us .cs-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+  
+  #why-choose-us .cs-text {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+  
+  /* Final Call to Action Section */
+  #cta {
+    padding: 80px 0;
+    background-color: #f7b32b; /* Brand color */
+    color: #fff;
+    text-align: center;
+  }
+  
+  #cta .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  #cta .title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  
+  #cta p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  #cta .button-solid {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #f7b32b; /* Brand color */
+    background-color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  #cta .button-solid:hover {
+    background-color: #e6a022; /* Darker shade of brand color */
+    color: #fff;
+  }
