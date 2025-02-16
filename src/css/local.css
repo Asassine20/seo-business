@@ -353,70 +353,51 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for differentiation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
-  height: 600px; /* Ensure all grid items have the same height */
-  will-change: transform, box-shadow; /* Optimize rendering */
+  height: auto; /* Allow height to adjust based on content */
+  will-change: transform, box-shadow;
+  background-color: #fff; /* White background for the card */
 }
 
-#gallery .cs-grid-item img {
-  width: 100%;
-  height: 100%; /* Force image to fill the grid item */
-  max-height: 600px; /* Limit maximum height of the image */
-  object-fit: cover; /* Ensure the image fills the container */
-  object-position: top; /* Align the image to the top of its container */
-  display: block;
-  transition: transform 0.2s ease; /* Smooth scaling */
+#gallery .cs-card-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff; /* White background for the header */
+  border-bottom: 1px solid #e0e0e0; /* Subtle border for separation */
+}
+
+#gallery .cs-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Circular logo placeholder */
+  margin-right: 1rem;
+}
+
+#gallery .cs-business-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--headerColor);
+}
+
+#gallery .cs-results {
+  padding: 1.5rem;
+  text-align: left;
+  background-color: #fff; /* White background for the results section */
+}
+
+#gallery .cs-results p {
+  font-size: 1.1rem; /* Larger text for results */
+  color: #555;
+  margin: 0;
+  line-height: 1.6; /* Improved readability */
 }
 
 #gallery .cs-grid-item:hover {
-  transform: scale(1.05) translateZ(0); /* Force GPU acceleration */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); /* Simpler shadow */
-}
-
-#gallery .cs-title-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(247, 179, 43, 1); /* Semi-transparent background */
-  color: #fff; /* White text */
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  visibility: hidden; /* Pre-render but hide */
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none; /* Prevent interference with clicks */
-  text-align: center;
-  will-change: opacity, transform; /* Optimize rendering */
-}
-
-#gallery .cs-grid-item:hover .cs-title-overlay {
-  visibility: visible;
-  opacity: 1;
-}
-
-
-/* Button Styles */
-#gallery .button-solid {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary);
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-#gallery .button-solid:hover {
-  background-color: var(--primaryHover);
+  transform: scale(1.05) translateZ(0);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 /* Responsive Grid for Smaller Screens */
