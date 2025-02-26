@@ -42,8 +42,16 @@
         <li>
             <a href="/clients">Clients</a>
         </li>
-        <li>
-            <a href="/solutions">Solutions</a>
+        <li style="position: relative;">
+            <a href="/solutions" id="solutions-link">Solutions</a>
+            <ul id="solutions-dropdown" style="display: none; position: absolute; top: 100%; left: 0; background-color: white; border: 1px solid #ccc; padding: 10px; list-style: none; min-width: 150px; text-align: left; white-space: nowrap; z-index: 1000;">
+                <li><a href="/seo" style="color: black; text-decoration: none; display: block;">SEO</a></li>
+                <li><a href="/ppc" style="color: black; text-decoration: none; display: block;">PPC (Google Ads)</a></li>
+                <li><a href="/website-design" style="color: black; text-decoration: none; display: block;">Website Design</a></li>
+                <li><a href="/content-creation" style="color: black; text-decoration: none; display: block;">Content Creation</a></li>
+                <li><a href="/mobile-app-development" style="color: black; text-decoration: none; display: block;">Mobile App Development</a></li>
+                <li><a href="/custom-software" style="color: black; text-decoration: none; display: block;">Custom Software</a></li>
+            </ul>
         </li>
         <li>
             <a href="/reviews">Reviews</a>
@@ -59,3 +67,66 @@
 
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const solutionsLink = document.getElementById('solutions-link');
+        const dropdownMenu = document.getElementById('solutions-dropdown');
+
+        // Function to check if the screen is mobile
+        function isMobile() {
+            return window.innerWidth <= 768; // Adjust breakpoint as needed
+        }
+
+        // Hover logic for desktop
+        if (!isMobile()) {
+            solutionsLink.parentElement.addEventListener('mouseenter', function() {
+                dropdownMenu.style.display = 'block';
+            });
+
+            solutionsLink.parentElement.addEventListener('mouseleave', function() {
+                dropdownMenu.style.display = 'none';
+            });
+        }
+
+        // Click logic for mobile
+        if (isMobile()) {
+            solutionsLink.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+    });
+</script>
+<style>
+    /* Responsive styling for mobile screens */
+    @media (max-width: 768px) {
+        #navbar-menu li {
+            text-align: center;
+        }
+        #navbar-menu li ul {
+            left: 50% !important; /* Force centering on mobile */
+            transform: translateX(-50%) !important; /* Force centering on mobile */
+            width: auto; /* Allow dropdown to take up as much space as needed */
+            background-color: black !important; /* Black background for mobile */
+            border: 1px solid #444; /* Darker border for mobile */
+            z-index: 1000;
+        }
+        #navbar-menu li ul a {
+            color: white !important; /* White text for mobile */
+        }
+
+    }
+    @media (max-width: 768px) {
+        #solutions-dropdown {
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            background-color: black !important;
+            border: 1px solid #444;
+            z-index: 1000;
+        }
+        #solutions-dropdown a {
+            color: white !important;
+            z-index: 1000;
+        }
+    }
+</style>
