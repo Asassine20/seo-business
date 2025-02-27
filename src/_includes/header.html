@@ -72,34 +72,67 @@
         const solutionsLink = document.getElementById('solutions-link');
         const dropdownMenu = document.getElementById('solutions-dropdown');
 
-        // Function to check if the screen is mobile
         function isMobile() {
-            return window.innerWidth <= 768; // Adjust breakpoint as needed
+            return window.innerWidth <= 1023; // Updated breakpoint for mobile behavior
         }
 
-        // Hover logic for desktop
-        if (!isMobile()) {
-            solutionsLink.parentElement.addEventListener('mouseenter', function() {
-                dropdownMenu.style.display = 'block';
-            });
-
-            solutionsLink.parentElement.addEventListener('mouseleave', function() {
-                dropdownMenu.style.display = 'none';
-            });
+        function resetDropdown() {
+            dropdownMenu.style.display = 'none';
         }
 
-        // Click logic for mobile
-        if (isMobile()) {
-            solutionsLink.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-            });
+        function setupMenu() {
+            resetDropdown();
+
+            if (isMobile()) {
+                // Remove hover event listeners for mobile
+                solutionsLink.parentElement.removeEventListener('mouseenter', showDropdown);
+                solutionsLink.parentElement.removeEventListener('mouseleave', hideDropdown);
+
+                // Add click event for mobile
+                solutionsLink.addEventListener('click', toggleDropdown);
+            } else {
+                // Remove click event for desktop
+                solutionsLink.removeEventListener('click', toggleDropdown);
+
+                // Add hover event listeners for desktop
+                solutionsLink.parentElement.addEventListener('mouseenter', showDropdown);
+                solutionsLink.parentElement.addEventListener('mouseleave', hideDropdown);
+            }
         }
+
+        function showDropdown() {
+            dropdownMenu.style.display = 'block';
+        }
+
+        function hideDropdown() {
+            dropdownMenu.style.display = 'none';
+        }
+
+        function toggleDropdown(event) {
+            event.preventDefault(); // Prevent default link behavior
+            dropdownMenu.style.display = (dropdownMenu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Initial setup
+        setupMenu();
+
+        // Re-apply menu logic on window resize
+        window.addEventListener('resize', setupMenu);
+
+        // Close dropdown if clicking outside of it (for mobile)
+        document.addEventListener('click', function(event) {
+            if (isMobile() && !solutionsLink.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                resetDropdown();
+            }
+        });
     });
 </script>
+
+
+
 <style>
     /* Responsive styling for mobile screens */
-    @media (max-width: 768px) {
+    @media (max-width: 1023px) {
         #navbar-menu li {
             text-align: center;
         }
@@ -116,17 +149,28 @@
         }
 
     }
-    @media (max-width: 768px) {
-        #solutions-dropdown {
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            background-color: black !important;
-            border: 1px solid #444;
-            z-index: 1000;
+
+    #solutions-dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        list-style: none;
+        min-width: 150px;
+        text-align: left;
+        white-space: nowrap;
+        z-index: 21001 !important;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
-        #solutions-dropdown a {
-            color: white !important;
-            z-index: 1000;
+
+        @media (min-width: 1024px) { 
+            #solutions-dropdown li {
+                margin: 10px 0; /* Adjust the vertical spacing */
+            }
         }
-    }
+        
 </style>

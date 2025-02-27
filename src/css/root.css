@@ -257,7 +257,7 @@
     width: 100%;
     border-radius: 0 0 0.375em 0.375em;
     z-index: -1;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     background-color: #fff;
     top: 3.7rem;
@@ -302,15 +302,43 @@
     z-index: -1;
   }
   #navigation #navbar-menu.open {
-    height: 22.25rem;
+    height: auto;
     padding-top: 1.25rem;
     z-index: -100;
+  }
+  /* Expands further when submenu is open */
+  #navigation #navbar-menu.expanded {
+    max-height: auto;
   }
   #navigation #navbar-menu.open ul li {
     opacity: 1;
     transform: translateY(0) rotateX(0);
   }
+
+  /* -------- Submenu (Dropdown) -------- */
+  #solutions-dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Position below the main nav */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    list-style: none;
+    min-width: 150px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 11000; /* Higher than hamburger menu */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Submenu active/open state */
+  #solutions-dropdown.open {
+    display: block;
+  }
 }
+
 /* Desktop */
 @media only screen and (min-width: 64em) {
   ::-webkit-scrollbar-track {

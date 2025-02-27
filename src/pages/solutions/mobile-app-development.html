@@ -179,14 +179,46 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <section id="cta">
-  <div class="container">
+  <div class="container" style="max-width: 600px; margin: 0 auto; text-align: center;">
     <h2 class="title">
-      Ready to Build Your Mobile App?
+      Bring Your Mobile App Idea to Life
     </h2>
     <p>
-      Let&#39;s work together to create a mobile app that drives results. Contact us today to get started.
+      We design and develop custom mobile applications tailored to your business needs. Let’s build an app that enhances user experience and drives results.
     </p>
-    <a href="/contact" class="button-solid">Get Your Free Consultation</a>
+    
+    <!-- Contact Form -->
+    <form id="cs-form" name="Contact Form" method="post" action="https://formspree.io/f/xrbbggda" 
+          style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+      <label style="font-weight: bold;">
+        Name
+        <input required type="text" id="name" name="name" placeholder="Name"
+               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+      </label>
+      <label style="font-weight: bold;">
+        Email
+        <input required type="email" id="email" name="email" placeholder="Email"
+               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+      </label>
+      <label style="font-weight: bold;">
+        Phone
+        <input required type="text" id="phone" name="phone" placeholder="Phone"
+               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+      </label>
+      <label style="font-weight: bold;">
+        How Did You Find Us
+        <input type="text" id="find" name="find-us" placeholder="How did you find us?"
+               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+      </label>
+      <label style="font-weight: bold;">
+        Message
+        <textarea required name="message" id="message" placeholder="Write message..."
+                  style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+      </label>
+      <button type="submit" 
+              style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
+        Submit Message
+      </button>
+    </form>
   </div>
-  {% image 'https://utfs.io/f/ZfzyDSYoDact3Cavqu7XAytKfmc675O0FTizJbqQPjoIMuxh', 'SEO Header', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>
