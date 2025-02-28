@@ -165,3 +165,8 @@
     background-color: #e6a022; /* Darker shade of brand color */
     color: #fff;
   }
+  #cta h2, #cta p {
+    display: block !important;
+    visibility: visible !important;
+    color: #222 !important; /* Ensure it's visible */
+  }

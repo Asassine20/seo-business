@@ -112,15 +112,45 @@ eleventyNavigation:
 <!-- ============================================ -->
 
 <section id="cta">
-  <div class="container">
-    <h2 class="title">
-      Let Us Help Grow Your<br/>
-      Gym Business
+  <div class="container" style="max-width: 600px; margin: 0 auto; text-align: center;">
+    <h2 class="title" style="color: #f7B32B !important;">
+      Transform Your Fitness Journey at Our Gym
     </h2>
-    <p>
-      Your potential members are searching—let them find you first. At Target Rank SEO, we craft gym SEO strategies to boost rankings, attract members, and grow your gym business.
+    <p style="color: white !important">
+      Achieve your fitness goals with state-of-the-art equipment, expert trainers, and supportive community. Join today and start your transformation!
     </p>
-    <a href="/contact" class="button-solid">Get Your Free Gym SEO Consultation</a>
+        <!-- Contact Form -->
+        <form id="cs-form" name="Contact Form" method="post" action="https://formspree.io/f/xrbbggda" 
+        style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+    <label style="font-weight: bold; color: white;">
+      Name
+      <input required type="text" id="name" name="name" placeholder="Name"
+             style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: white;">
+      Email
+      <input required type="email" id="email" name="email" placeholder="Email"
+             style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: white;">
+      Phone
+      <input required type="text" id="phone" name="phone" placeholder="Phone"
+             style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: white;">
+      How Did You Find Us
+      <input type="text" id="find" name="find-us" placeholder="How did you find us?"
+             style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: white;">
+      Message
+      <textarea required name="message" id="message" placeholder="Write message..."
+                style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+    </label>
+    <button type="submit" 
+            style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
+      Submit Message
+    </button>
+  </form>
   </div>
-  {% image 'https://utfs.io/f/ZfzyDSYoDact3Cavqu7XAytKfmc675O0FTizJbqQPjoIMuxh', 'SEO Header', '', 'lazy', '(max-width: 400px) 400px, (max-width: 850px) 850px, 1920px'%}
 </section>

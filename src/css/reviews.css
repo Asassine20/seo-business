@@ -160,17 +160,11 @@
     max-width: 37.375rem;
   }
 }
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #cta {
-    padding: 10.5rem 0;
-  }
-}
+
 /* Large Desktop */
 @media only screen and (min-width: 1300px) {
   #cta {
     position: relative;
-    margin-top: 6.25rem;
   }
   #cta:before {
     display: none;
@@ -214,3 +208,9 @@
   }
 }
 
+
+#cta h2, #cta p {
+  display: block !important;
+  visibility: visible !important;
+  color: #222 !important; /* Ensure it's visible */
+}
