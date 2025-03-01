@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://{{ client.domain }}{{ page.url }}">
 
     <meta name="description" content="{{ description }}">
-    <meta name="keywords" content="">
+    <meta name="keywords" content="{{ keywords }}">
 
     <!--Social Media Display-->
     <meta property="og:title" content="{{ metaTitle }}" />
@@ -71,7 +71,7 @@
     <!-- For home page, use full title, including location for SEO. Other pages should just include the page name -->
     <title>
         {% if page.url == '/'%}
-        {{ client.name }} | {{ tagTitle }} | {{ client.address.city }}, {{ client.address.county }}
+        Target Rank SEO | Local SEO & Digital Marketing Experts
         {% else %}
         {{ tagTitle }} | {{ client.name }}
         {% endif %}
