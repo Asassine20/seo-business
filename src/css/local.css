@@ -548,7 +548,6 @@
     display: block;
     height: 100%;
     width: 100%;
-    background: #000;
     opacity: .7;
     top: 0;
     left: 0;
@@ -606,7 +605,6 @@
     display: block;
     height: 69.25rem;
     width: 125rem;
-    background: url("/assets/svgs/cta-squares.svg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -631,7 +629,6 @@
     display: block;
     height: 100%;
     width: 100%;
-    background: #000;
     opacity: .7;
     top: 0;
     left: 0;

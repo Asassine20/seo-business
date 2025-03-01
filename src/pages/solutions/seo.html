@@ -187,38 +187,85 @@ eleventyNavigation:
       Increase your online visibility and attract more organic traffic with our expert SEO services. Let’s optimize your site for long-term success.
     </p>
     
-    <!-- Contact Form -->
-    <form id="cs-form" name="Contact Form" method="post" action="https://formspree.io/f/xrbbggda" 
-          style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
-      <label style="font-weight: bold;">
+<!-- Contact Form -->
+<form id="cs-form" name="Contact Form" method="post" action="https://formspree.io/f/xrbbggda" 
+    style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+    
+    <label style="font-weight: bold; color: black;">
         Name
         <input required type="text" id="name" name="name" placeholder="Name"
-               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-      </label>
-      <label style="font-weight: bold;">
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    
+    <label style="font-weight: bold; color: black;">
         Email
         <input required type="email" id="email" name="email" placeholder="Email"
-               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-      </label>
-      <label style="font-weight: bold;">
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    
+    <label style="font-weight: bold; color: black;">
         Phone
         <input required type="text" id="phone" name="phone" placeholder="Phone"
-               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-      </label>
-      <label style="font-weight: bold;">
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    
+    <label style="font-weight: bold; color: black;">
         How Did You Find Us
         <input type="text" id="find" name="find-us" placeholder="How did you find us?"
-               style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-      </label>
-      <label style="font-weight: bold;">
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    
+    <label style="font-weight: bold; color: black;">
         Message
         <textarea required name="message" id="message" placeholder="Write message..."
-                  style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
-      </label>
-      <button type="submit" 
-              style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+    </label>
+    
+    <button type="submit" id="submit-btn"
+        style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
         Submit Message
-      </button>
-    </form>
-  </div>
-</section>
+    </button>
+</form>
+
+<script>
+    document.getElementById("cs-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        var form = this;
+
+        // Call Google Ads conversion tracking
+        var callback = function() {
+            form.submit(); // Submit the form after tracking
+        };
+
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16900638315/GYSjCNu4uaQaEOuM7f0-',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+
+        // Fallback submission in case tracking fails
+        setTimeout(function() {
+            form.submit();
+        }, 2000);
+    });
+</script>
+
+<!-- Google Ads Conversion Tracking Script -->
+<script>
+    function gtag_report_conversion(url) {
+        var callback = function() {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16900638315/GYSjCNu4uaQaEOuM7f0-',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+        return false;
+    }
+</script>
