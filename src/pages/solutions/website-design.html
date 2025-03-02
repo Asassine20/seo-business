@@ -187,38 +187,79 @@ eleventyNavigation:
       Get a beautifully designed, high-performing website that enhances user experience and drives business growth. Let’s build your digital presence today.
     </p>
     
-    <!-- Contact Form -->
+<!-- Contact Form -->
 <form id="cs-form" name="Contact Form" method="post" action="https://formspree.io/f/xrbbggda" 
-style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
-<label style="font-weight: bold; color: black;">
-Name
-<input required type="text" id="name" name="name" placeholder="Name"
-     style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-</label>
-<label style="font-weight: bold; color: black;">
-Email
-<input required type="email" id="email" name="email" placeholder="Email"
-     style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-</label>
-<label style="font-weight: bold; color: black;">
-Phone
-<input required type="text" id="phone" name="phone" placeholder="Phone"
-     style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-</label>
-<label style="font-weight: bold; color: black;">
-How Did You Find Us
-<input type="text" id="find" name="find-us" placeholder="How did you find us?"
-     style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-</label>
-<label style="font-weight: bold; color: black;">
-Message
-<textarea required name="message" id="message" placeholder="Write message..."
-        style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
-</label>
-<button type="submit" 
-    style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
-Submit Message
-</button>
+    style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+    
+    <label style="font-weight: bold; color: black;">
+        Name
+        <input required type="text" id="name" name="name" placeholder="Name"
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: black;">
+        Email
+        <input required type="email" id="email" name="email" placeholder="Email"
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: black;">
+        Phone
+        <input required type="text" id="phone" name="phone" placeholder="Phone"
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: black;">
+        How Did You Find Us
+        <input type="text" id="find" name="find-us" placeholder="How did you find us?"
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+    </label>
+    <label style="font-weight: bold; color: black;">
+        Message
+        <textarea required name="message" id="message" placeholder="Write message..."
+            style="width: 100%; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px; height: 100px;"></textarea>
+    </label>
+    <button type="submit" 
+        style="padding: 12px; font-size: 16px; border: none; background-color: #f7B32B; color: white; cursor: pointer; border-radius: 5px;">
+        Submit Message
+    </button>
 </form>
-  </div>
-</section>
+
+<!-- Hidden success message -->
+<p id="success-message" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+  Your message has been sent successfully! We will get back with you as soon as possible.
+</p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Ensure success message is hidden on page load
+    document.getElementById("success-message").style.display = "none";
+
+    document.getElementById("cs-form").addEventListener("submit", async function(event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        let form = event.target;
+        let formData = new FormData(form);
+        let successMessage = document.getElementById("success-message");
+    
+        try {
+            let response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+    
+            if (response.ok) {
+                successMessage.style.display = "block"; // Show success message
+                form.reset(); // Clear the form
+
+                // Refresh the page after 2 seconds
+                setTimeout(() => {
+                    window.location.reload();
+                }, 3000);
+            } else {
+                alert("There was an error submitting your form. Please try again.");
+            }
+        } catch (error) {
+            alert("Network error. Please check your connection.");
+        }
+    });
+});
+</script>
