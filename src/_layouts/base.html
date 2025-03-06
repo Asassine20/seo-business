@@ -44,20 +44,25 @@
     <link rel="stylesheet" href="{{ preloadCSS }}">
 
     <!--Put analytics tag here at the bottom to prevent it from render blocking-->
-    <!-- Google tag (gtag.js) for google ads-->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16900638315">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16900638315"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || []; 
-        function gtag() { 
-            dataLayer.push(arguments); 
-        } 
-        gtag('js', new Date()); 
-        gtag('config', 'AW-16900638315'); 
-    </script>
-
+  gtag('config', 'AW-16900638315');
+</script>
+  <!-- Conditional Google Ads Conversion Tracking for multiple pages -->
+  {% if page.url == "/seo/" or page.url == "/ppc/" or page.url == "/" %}
+  <script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16900638315/bZvxCJ6qjqUaEOuM7fo-',
+        'value': 1.0,
+        'currency': 'USD'
+    });
+  </script>
+  {% endif %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NE3YBK9BB"></script>
     <script>
