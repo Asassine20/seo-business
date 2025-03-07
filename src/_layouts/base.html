@@ -56,12 +56,17 @@
   <!-- Conditional Google Ads Conversion Tracking for multiple pages -->
   {% if page.url == "/seo/" or page.url == "/ppc/" or page.url == "/" %}
   <script>
-    gtag('event', 'conversion', {
-        'send_to': 'AW-16900638315/bZvxCJ6qjqUaEOuM7fo-',
-        'value': 1.0,
-        'currency': 'USD'
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("form").addEventListener("submit", function () {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16900638315/bZvxCJ6qjqUaEOuM7fo-',
+                'value': 1.0,
+                'currency': 'USD'
+            });
+        });
     });
-  </script>
+    </script>
+    
   {% endif %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1NE3YBK9BB"></script>
